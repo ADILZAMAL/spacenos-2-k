@@ -1,22 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const userSlice = createSlice({
   name: "user",
   initialState: {
+    isLoading: false,
     isAuthenticated: false,
     uid: null,
-    username: null,
+    username: "",
     email: null,
+    allUsers: [],
+    friends: [],
+    notFriends: [],
   },
   reducers: {
-    loginSuccessfull: (store, action) => {
-      store.email = action.payload.email;
-      store.uid = action.payload.uid;
-      store.username = action.payload.username;
-      store.isAuthenticated = true;
+    loginRequested: (store, action) => {
+      store.isLoading = true;
     },
+    loginFailed: (store, action) => {
+      store.isLoading = false;
+    },
+    loginSuccessfull: (store, action) => {
+      const { email, uid, username } = action.payload;
+      store.email = email;
+      store.uid = uid;
+      store.username = username;
+      store.isAuthenticated = true;
+      store.isLoading = false;
+    },
+    addAllUsers: (store, action) => {
+      store.allUsers = action.payload;
+    },
+    // addFriends: (store, action) => {
+    //   store.totalUsers = action.payload;
+    // },
   },
 });
 
 export default userSlice.reducer;
-export const { loginSuccessfull } = userSlice.actions;
+export const {
+  loginSuccessfull,
+  loginRequested,
+  loginFailed,
+  addAllUsers,
+} = userSlice.actions;

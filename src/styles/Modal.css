@@ -1,0 +1,29 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal__user {
+  padding: 10px 50px;
+  border: 1px solid #000;
+  margin-bottom: 7px;
+  border-radius: 4px;
+  transition-duration: 300ms;
+}
+.modal__user:hover {
+  transform: scale(1.08);
+  background: #000;
+  color: #fff;
+}
+.modal__button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border: 1px solid #eee;
+  transition-duration: 300ms;
+}
+.modal__button:hover {
+  transform: scale(1.08);
+}

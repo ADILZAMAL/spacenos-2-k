@@ -1,0 +1,16 @@
+.main {
+  height: 83vh;
+  background-color: #fff;
+  display: flex;
+}
+.main__left {
+  width: 30vw;
+  background-color: #1e1e1e;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.main__right {
+  width: 70vw;
+  color: black;
+}

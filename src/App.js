@@ -9,8 +9,6 @@ import { useDispatch } from "react-redux";
 import { auth } from "./firebase";
 import { loginSuccessfull } from "./store/user";
 function App() {
-  const dispatch = useDispatch();
-
   return (
     <Router>
       <Switch>

@@ -1,0 +1,38 @@
+.footer {
+  height: 7vh;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: row;
+}
+.footer__left {
+  border-right: 1px solid #fff;
+  height: 7vh;
+  width: 30vw;
+  /* font-size: 2rem; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer__left h1 {
+  padding: 0 15px;
+}
+.footer__right {
+  width: 70vw;
+  display: flex;
+  height: 100%;
+}
+
+.footer__right input {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #1e1e1e;
+  border-right: 1px solid #1e1e1e;
+  padding: 5px;
+}
+.footer__right button {
+  padding: 10px;
+  border: none;
+  background-color: #eeeeee;
+  /* border-radius: 5px; */
+  font-size: 1rem;
+}

@@ -1,0 +1,28 @@
+.msg__message {
+  padding: 10px;
+  border-radius: 20px;
+}
+.msg {
+  margin-bottom: 20px;
+}
+.msg__right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+.msg__username p {
+  padding-left: 10px;
+}
+.msg__right .msg__message {
+  background-color: #007acc;
+  color: #fff;
+  margin-right: 10px;
+}
+.msg__left .msg__message {
+  background-color: #c0c0c0;
+}
+.msg__left {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}

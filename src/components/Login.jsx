@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Redirect } from "react-router-dom";
 import { auth, db } from '../firebase'
 import {loginRequested, loginSuccessfull, loginFailed} from '../store/user';
@@ -9,6 +9,7 @@ const Login = () => {
   const isauthenticated = useSelector(store => store.user.isAuthenticated);
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
+  const isLoading = useSelector(store=> store.user.isLoading)
 
   //Login code
   const loginHandler = () => {
@@ -69,7 +70,8 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="login__container">
+    {isLoading&& <p>Loading...</p>}
+    {!isLoading&&     <div className="login__container">
         <input
           className="login__input"
           type="text"
@@ -83,7 +85,8 @@ const Login = () => {
         <button onClick={registerHandler} className="login__register">
           Register
         </button>
-      </div>
+      </div>}
+  
     </div>
   );
 };

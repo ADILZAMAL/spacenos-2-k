@@ -5,6 +5,8 @@ const friendSlice = createSlice({
   initialState: {
     isLoading: false,
     allFriends: [],
+    currentFriend: {},
+    messages: [],
   },
   reducers: {
     addFriendRequested: (store, action) => {
@@ -19,6 +21,17 @@ const friendSlice = createSlice({
     addFriendFailure: (store, action) => {
       store.isLoading = false;
     },
+    addActiveFriend: (store, action) => {
+      store.currentFriend = action.payload;
+    },
+    addMessages: (store, action) => {
+      store.messages = action.payload;
+    },
+    clearFriends: (store, action) => {
+      store.messages = [];
+      store.currentFriend = {};
+      store.allFriends = [];
+    },
   },
 });
 
@@ -27,5 +40,8 @@ export const {
   addFriendRequested,
   addFriendSuccess,
   addFriendFailure,
-  addAllFriends
+  addAllFriends,
+  addActiveFriend,
+  addMessages,
+  clearFriends
 } = friendSlice.actions;

@@ -1,6 +1,6 @@
-import React, {  useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import { auth, db } from '../firebase'
+import {  db } from '../firebase'
 import Navbar from './Navbar';
 import Main from './Main';
 import Footer from './Footer'
@@ -10,11 +10,20 @@ import { addFriendRequested, addFriendSuccess, addFriendFailure } from '../store
 const Home = () => {
   const dispatch = useDispatch();
   const [modalIsOpen,setIsOpen] = useState(false);
-  const allUsers = useSelector(store => store.user.allUsers);
+  let allUsers = useSelector(store => store.user.allUsers);
   const allFriends = useSelector(store=> store.friend.allFriends);
   const currentUid = useSelector(store=> store.user.uid);
   const currentEmail = useSelector(store=> store.user.email);
   const currentUsername = useSelector(store=> store.user.username);
+  allUsers = allUsers.filter((user)=>{
+    const id = user.uid;
+    for(let i=0; i<allFriends.length; i++)
+    {
+      if(allFriends[i].uid === id)
+      return false;
+    }
+    return true;
+  })
   const openModal = () => {
     setIsOpen(true);
   }

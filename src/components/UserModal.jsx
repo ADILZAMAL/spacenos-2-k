@@ -15,7 +15,6 @@ const customStyles = {
 
 export default function UserModal({ modalIsOpen, closeModal, users, setFriends}) {
   const isLoading = useSelector(store => store.friend.isLoading);
-  console.log(users)
   return (
     <div>
       <Modal
@@ -26,7 +25,7 @@ export default function UserModal({ modalIsOpen, closeModal, users, setFriends})
         >
           {!isLoading&& 
             < div className="modal">
-              {users.map(user=><div className="modal__user" onClick={()=>{setFriends(user)}}>{user.username}</div>)}
+              {users.map((user, idx)=><div key ={idx} className="modal__user" onClick={()=>{setFriends(user)}}>{user.username}</div>)}
               <button className="modal__button" onClick={closeModal}>close</button>
             </div>
 }

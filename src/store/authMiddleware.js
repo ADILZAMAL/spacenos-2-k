@@ -1,9 +1,8 @@
 import { db } from "../firebase";
 import { addAllUsers } from "./user";
-import { addFriendSuccess, addAllFriends } from "./friend";
-const users = new Array();
+import { addAllFriends } from "./friend";
 const authMiddleware = ({ dispatch }) => (next) => (action) => {
-  if (action.type == "user/loginSuccessfull") {
+  if (action.type === "user/loginSuccessfull") {
     const uid = action.payload.uid;
     db.collection("users").onSnapshot((snapshot) => {
       const users = [];

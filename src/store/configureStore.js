@@ -1,11 +1,6 @@
-import {
-  applyMiddleware,
-  configureStore,
-  getDefaultMiddleware,
-} from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import userReducer from "./user";
-import friendReducer from './friend'
-import { loginSuccessfull } from "./user";
+import friendReducer from "./friend";
 import authMiddleware from "./authMiddleware";
 const rootReducer = {
   user: userReducer,

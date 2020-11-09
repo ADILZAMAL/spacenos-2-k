@@ -29,6 +29,12 @@ const userSlice = createSlice({
     addAllUsers: (store, action) => {
       store.allUsers = action.payload;
     },
+    logout: (store, action) => {
+      store.isAuthenticated = false;
+      store.uid = null;
+      store.username = null;
+      store.allUsers = [];
+    },
     // addFriends: (store, action) => {
     //   store.totalUsers = action.payload;
     // },
@@ -41,4 +47,5 @@ export const {
   loginRequested,
   loginFailed,
   addAllUsers,
+  logout,
 } = userSlice.actions;
